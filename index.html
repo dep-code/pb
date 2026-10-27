@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Devira Meireditha Luis Cahyani</title>
+  <link rel="stylesheet" href="index.css?v=8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&family=Cinzel:wght@400;500;600&family=Lato:wght@300;400&family=Pacifico&family=Satisfy&family=Great+Vibes&family=Fredoka+One&family=Nunito:wght@700;800;900&family=IM+Fell+English:ital&family=Libre+Baskerville:ital,wght@1,400&family=Berkshire+Swash&family=Italiana&family=Josefin+Sans:ital,wght@1,300;1,400&family=Cinzel+Decorative:wght@400;700&family=Poiret+One&family=Pinyon+Script&family=Alex+Brush&family=Cherry+Bomb+One&family=Bubblegum+Sans&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+<!-- BG LIGHT ELEMENTS -->
+<div id="bg-light-wrap">
+  <div class="bg-smoke-light"></div>
+  <div class="bg-smoke-light bg-smoke-light--2"></div>
+  <div class="bg-smoke-light bg-smoke-light--3"></div>
+  <div class="bg-smoke-light bg-smoke-light--4"></div>
+  <div class="bg-smoke-light bg-smoke-light--5"></div>
+  <div id="bg-clouds-wrap">
+    <div class="bg-cloud bg-cloud--1"></div>
+    <div class="bg-cloud bg-cloud--2"></div>
+    <div class="bg-cloud bg-cloud--3"></div>
+    <div class="bg-cloud bg-cloud--4"></div>
+    <div class="bg-cloud bg-cloud--5"></div>
+    <div class="bg-cloud bg-cloud--6"></div>
+  </div>
+  <div id="bg-birds-wrap">
+    <div class="bg-bird bg-bird--1"></div>
+    <div class="bg-bird bg-bird--2"></div>
+    <div class="bg-bird bg-bird--3"></div>
+    <div class="bg-bird bg-bird--4"></div>
+    <div class="bg-bird bg-bird--5"></div>
+    <div class="bg-bird bg-bird--6"></div>
+    <div class="bg-bird bg-bird--7"></div>
+    <div class="bg-bird bg-bird--8"></div>
+  </div>
+</div>
+
+<!-- BG DARK ELEMENTS -->
+<div id="bg-dark-wrap">
+  <div class="bg-smoke-dark"></div>
+  <div class="bg-smoke-dark bg-smoke-dark--2"></div>
+  <div class="bg-smoke-dark bg-smoke-dark--3"></div>
+  <div class="bg-smoke-dark bg-smoke-dark--4"></div>
+  <div class="bg-smoke-dark bg-smoke-dark--5"></div>
+  <div id="bg-stars-wrap">
+    <canvas id="bg-stars-canvas"></canvas>
+  </div>
+  <div id="home-moon-wrap" class="hidden">
+    <div class="home-moon-crescent"><div class="home-moon-inner"></div></div>
+    <div class="home-moon-glow"></div>
+  </div>
+</div>
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring-sm"></div>
+<div id="cursor-ring-md"></div>
+<div id="cursor-ring-lg"></div>
+
+<!-- INTRO SCREEN -->
+<div id="intro-screen">
+  <div class="intro-smoke"></div>
+  <div class="intro-smoke intro-smoke--2"></div>
+  <div class="intro-smoke intro-smoke--3"></div>
+  <div class="intro-ornament intro-ornament--top">
+    <img src="makota.png" alt="crown" class="intro-crown-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"/>
+    <svg class="intro-crown-svg" style="display:none" viewBox="0 0 340 130" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="cg1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#fffacd"/><stop offset="30%" stop-color="#ffd700"/><stop offset="70%" stop-color="#d4a017"/><stop offset="100%" stop-color="#b8860b"/></linearGradient>
+        <linearGradient id="cg2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="transparent"/><stop offset="20%" stop-color="#b8860b"/><stop offset="50%" stop-color="#ffd700"/><stop offset="80%" stop-color="#b8860b"/><stop offset="100%" stop-color="transparent"/></linearGradient>
+        <radialGradient id="gem1" cx="40%" cy="30%" r="65%"><stop offset="0%" stop-color="#ffffff"/><stop offset="40%" stop-color="#e8f4ff"/><stop offset="100%" stop-color="#90c8ff"/></radialGradient>
+        <filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <filter id="sglow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <path d="M30,108 Q170,92 310,108" stroke="url(#cg2)" stroke-width="6" fill="none" filter="url(#glow)"/>
+      <circle cx="80" cy="105" r="3" fill="#fffacd" filter="url(#glow)"/>
+      <circle cx="170" cy="101" r="3.5" fill="#fffacd" filter="url(#glow)"/>
+      <circle cx="260" cy="105" r="3" fill="#fffacd" filter="url(#glow)"/>
+      <path d="M48,106 Q56,78 64,106 Z" fill="url(#cg1)" filter="url(#glow)"/>
+      <ellipse cx="56" cy="73" rx="5" ry="7" fill="url(#gem1)" filter="url(#glow)"/>
+      <path d="M126,102 Q134,68 142,102 Z" fill="url(#cg1)" filter="url(#glow)"/>
+      <ellipse cx="134" cy="63" rx="6" ry="8.5" fill="url(#gem1)" filter="url(#glow)"/>
+      <path d="M158,102 Q164,58 170,8 Q176,58 182,102 Z" fill="url(#cg1)" filter="url(#sglow)"/>
+      <ellipse cx="170" cy="10" rx="8" ry="12" fill="url(#gem1)" filter="url(#sglow)"/>
+      <path d="M198,102 Q206,68 214,102 Z" fill="url(#cg1)" filter="url(#glow)"/>
+      <ellipse cx="206" cy="63" rx="6" ry="8.5" fill="url(#gem1)" filter="url(#glow)"/>
+      <path d="M276,106 Q284,78 292,106 Z" fill="url(#cg1)" filter="url(#glow)"/>
+      <ellipse cx="284" cy="73" rx="5" ry="7" fill="url(#gem1)" filter="url(#glow)"/>
+    </svg>
+  </div>
+  <div class="intro-center">
+    <p class="intro-subtitle-top">A Place Called Me</p>
+    <div class="intro-divider">
+      <svg viewBox="0 0 380 36" xmlns="http://www.w3.org/2000/svg" width="380" height="36">
+        <defs>
+          <linearGradient id="divGold" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="transparent"/><stop offset="40%" stop-color="#d4af7a"/>
+            <stop offset="60%" stop-color="#f0d080"/><stop offset="100%" stop-color="transparent"/>
+          </linearGradient>
+        </defs>
+        <line x1="0" y1="18" x2="130" y2="18" stroke="url(#divGold)" stroke-width="0.7"/>
+        <line x1="250" y1="18" x2="380" y2="18" stroke="url(#divGold)" stroke-width="0.7"/>
+        <path d="M100,18 Q110,10 120,18 Q130,26 140,18" stroke="#d4af7a" stroke-width="0.8" fill="none" opacity="0.6"/>
+        <path d="M240,18 Q250,10 260,18 Q270,26 280,18" stroke="#d4af7a" stroke-width="0.8" fill="none" opacity="0.6"/>
+        <circle cx="190" cy="18" r="5" fill="none" stroke="#f0d080" stroke-width="1.2"/>
+        <circle cx="190" cy="18" r="2.5" fill="#f0d080"/>
+        <line x1="190" y1="10" x2="190" y2="26" stroke="#d4af7a" stroke-width="0.8" opacity="0.7"/>
+        <line x1="182" y1="18" x2="198" y2="18" stroke="#d4af7a" stroke-width="0.8" opacity="0.7"/>
+        <line x1="184" y1="12" x2="196" y2="24" stroke="#d4af7a" stroke-width="0.6" opacity="0.5"/>
+        <line x1="196" y1="12" x2="184" y2="24" stroke="#d4af7a" stroke-width="0.6" opacity="0.5"/>
+        <polygon points="155,12 162,18 155,24 148,18" fill="none" stroke="#d4af7a" stroke-width="1" opacity="0.8"/>
+        <polygon points="225,12 232,18 225,24 218,18" fill="none" stroke="#d4af7a" stroke-width="1" opacity="0.8"/>
+        <circle cx="155" cy="18" r="2" fill="#d4af7a" opacity="0.7"/>
+        <circle cx="225" cy="18" r="2" fill="#d4af7a" opacity="0.7"/>
+      </svg>
+    </div>
+    <p class="intro-title">Get to Know Me</p>
+  </div>
+  <div class="intro-loader-wrap">
+    <div class="intro-loader-track">
+      <div class="intro-loader-fill" id="loader-fill"></div>
+      <div class="intro-loader-glow"></div>
+    </div>
+    <span class="intro-loader-pct" id="loader-pct">0%</span>
+  </div>
+</div>
+
+<!-- CHAR INTRO -->
+<div id="char-intro-wrap">
+  <canvas id="rope-canvas-intro"></canvas>
+  <img src="cml.png" id="char-intro" alt="character" />
+</div>
+
+<!-- PAGE PULL -->
+<div id="page-pull-overlay">
+  <div id="page-pull-sheet"></div>
+</div>
+
+<!-- MAIN SITE -->
+<div id="main-site" class="hidden">
+
+  <!-- HEADER -->
+  <header id="site-header">
+    <div class="header-inner">
+      <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Open sidebar">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="logo-wrap">
+        <span class="logo-text">DMLC</span>
+        <div class="logo-glow"></div>
+      </div>
+      <nav class="header-nav">
+        <a href="#home" class="nav-item" data-label="Home"><i data-lucide="home" class="nav-icon"></i><span data-id="Beranda" data-en="Home">Beranda</span></a>
+        <a href="#about" class="nav-item" data-label="About Me"><i data-lucide="user" class="nav-icon"></i><span data-id="Tentang Saya" data-en="About Me">Tentang Saya</span></a>
+        <a href="#skills" class="nav-item" data-label="Skills"><i data-lucide="sparkles" class="nav-icon"></i><span data-id="Keahlian" data-en="Skills">Keahlian</span></a>
+        <a href="#portfolio" class="nav-item" data-label="Portfolio"><i data-lucide="layout-grid" class="nav-icon"></i><span data-id="Portofolio" data-en="Portfolio">Portofolio</span></a>
+        <a href="#cv" class="nav-item" data-label="CV"><i data-lucide="file-text" class="nav-icon"></i><span data-id="CV" data-en="CV">CV</span></a>
+      </nav>
+      <div class="lang-switcher" id="lang-switcher">
+        <button class="lang-btn active" data-lang="id">ID</button>
+        <span class="lang-divider">|</span>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <div class="lamp-wrap" id="lamp-wrap">
+        <div class="lamp-rope-container"><canvas id="lamp-rope-canvas"></canvas></div>
+        <div class="lamp-body" id="lamp-body">
+          <img src="lamp.png" alt="lamp" class="lamp-img" id="lamp-img" />
+          <div class="lamp-glow" id="lamp-glow"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SIDEBAR -->
+  <div id="sidebar-overlay"></div>
+  <aside id="sidebar">
+    <button class="sidebar-close" id="sidebar-close" aria-label="Close sidebar"><i data-lucide="x"></i></button>
+    <div class="sidebar-logo">DMLC</div>
+    <nav class="sidebar-nav">
+      <button class="sidebar-item" id="btn-findme"><i data-lucide="map-pin" class="nav-icon"></i><span data-id="Temukan Saya" data-en="Find Me">Temukan Saya</span></button>
+    </nav>
+  </aside>
+
+<!-- CHAR LAMP -->
+  <div id="char-lamp-wrap">
+    <canvas id="rope-canvas-lamp"></canvas>
+    <img src="cml.png" id="char-lamp" alt="character" />
+  </div>
+
+  <!-- NIGHT SKY -->
+  <div id="night-sky" class="hidden">
+    <div id="moon-wrap">
+      <div class="moon-crescent"><div class="moon-inner"></div></div>
+      <div class="moon-glow"></div>
+    </div>
+    <div id="night-particles"></div>
+  </div>
+
+  <!-- DAY SKY -->
+  <div id="day-sky" class="hidden">
+    <div id="sun-wrap">
+      <div class="sun"></div>
+      <div class="sun-rays"></div>
+      <div class="sun-glow"></div>
+    </div>
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+    <div class="cloud cloud-4"></div>
+  </div>
+
+  <!-- HOME SECTION -->
+  <section id="home" class="section-home">
+    <div class="home-bg-wrap">
+      <img src="f.png" alt="" class="home-bg-real-img" id="home-bg" aria-hidden="true" />
+      <div class="home-bg-top-overlay"></div>
+      <div class="home-day-overlay" id="home-day-overlay">
+        <div class="home-cloud home-cloud-1"></div>
+        <div class="home-cloud home-cloud-2"></div>
+        <div class="home-cloud home-cloud-3"></div>
+        <div class="home-cloud home-cloud-4"></div>
+        <div class="home-cloud home-cloud-5"></div>
+      </div>
+      <div class="home-bg-particles" id="home-particles"></div>
+      <div class="home-name-block">
+        <h1 class="home-fullname" id="home-fullname">Devira Meireditha Luis Cahyani</h1>
+        <div class="home-nickname-wrap">
+          <span class="home-nickname-label" data-id="Panggil aku" data-en="Call me">Panggil aku</span>
+          <span class="home-nickname" id="home-nickname">Devira</span>
+        </div>
+        <p class="home-tagline">
+          "<span data-id="Merancang Dunia Dengan Pikiran Muda Dan Visi Besar." data-en="Designing Worlds With A Young Mind And Big Vision.">Merancang Dunia dengan Pikiran Muda dan Visi Besar.</span>"
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="section-about">
+    <div class="about-bg-wrap">
+      <div class="about-bg-img" id="about-bg"></div>
+      <div class="about-bg-overlay"></div>
+      <div class="about-smoke"></div>
+    </div>
+    <div class="section-content">
+      <div class="section-label reveal-up" data-id="Tentang Saya" data-en="About Me">Tentang Saya</div>
+      <h2 class="section-title reveal-up" data-id="Siapa Aku" data-en="Who Am I">Siapa Aku</h2>
+      <div class="about-intro-row reveal-up">
+        <div class="about-intro-text">
+          <p class="about-desc" data-id="Halo, aku <strong>Devira Meireditha Luis Cahyani</strong> — lulusan SMK Negeri 7 Semarang jurusan SIJA yang punya ambisi besar, jiwa kreatif, dan semangat tanpa batas." data-en="Hello, I am <strong>Devira Meireditha Luis Cahyani</strong> — a graduate of SMK Negeri 7 Semarang majoring in SIJA, with big ambitions, a creative soul, and boundless spirit.">Halo, aku <strong>Devira Meireditha Luis Cahyani</strong> — lulusan SMK Negeri 7 Semarang jurusan SIJA yang punya ambisi besar, jiwa kreatif, dan semangat tanpa batas.</p>
+          <div class="about-tags">
+            <span class="tag" data-id="Kreatif" data-en="Creative">Kreatif</span><span class="tag" data-id="Inovatif" data-en="Innovative">Inovatif</span><span class="tag" data-id="Ambisius" data-en="Ambitious">Ambisius</span><span class="tag" data-id="Perfectionist" data-en="Perfectionist">Perfectionist</span><span class="tag" data-id="Terampil" data-en="Skilled">Terampil</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-movie-grid">
+        <div class="about-scene reveal-up" style="--delay:0s; --scene-color:#f48fb1">
+          <div class="about-scene-num">01</div>
+          <div class="about-scene-icon"><i data-lucide="heart"></i></div>
+          <h3 class="about-scene-title" data-id="Riwayat Keluarga" data-en="Family Background">Riwayat Keluarga</h3>
+          <div class="about-scene-body">
+            <p data-id="Lahir di keluarga sederhana beranggotakan empat orang." data-en="Born into a modest family of four.">Lahir di keluarga sederhana beranggotakan empat orang.</p>
+            <ul class="about-scene-list">
+              <li data-id="<strong>Ayah:</strong> Shokhi Lutfi — Pegawai swasta klinik" data-en="<strong>Father:</strong> Shokhi Lutfi — private clinic employee"><strong>Ayah:</strong> Shokhi Lutfi — Pegawai swasta klinik</li>
+              <li data-id="<strong>Ibu:</strong> Ismawati Hoat — Ibu rumah tangga" data-en="<strong>Mother:</strong> Ismawati Hoat — housewife"><strong>Ibu:</strong> Ismawati Hoat — Ibu rumah tangga</li>
+              <li data-id="<strong>Kakak:</strong> Luisna Devanti Firdausa — Sudah lulus kuliah &amp; bekerja" data-en="<strong>Older sister:</strong> Luisna Devanti Firdausa — graduated college &amp; working"><strong>Kakak:</strong> Luisna Devanti Firdausa — Sudah lulus kuliah &amp; bekerja</li>
+              <li data-id="<strong>Aku Si Bungsu:</strong> Devira Meireditha Luis Cahyani — Anak kedua sekaligus anak terakhir dari dua bersaudara" data-en="<strong>The Youngest:</strong> Devira Meireditha Luis Cahyani — The second and youngest child of two siblings"><strong>Aku Si Bungsu:</strong> Devira Meireditha Luis Cahyani — Anak kedua sekaligus anak terakhir dari dua bersaudara</li>
+            </ul>
+          </div>
+        </div>
+        <div class="about-scene reveal-up" style="--delay:0.08s; --scene-color:#4db8e8">
+          <div class="about-scene-num">02</div>
+          <div class="about-scene-icon"><i data-lucide="graduation-cap"></i></div>
+          <h3 class="about-scene-title" data-id="Riwayat Pendidikan" data-en="Educational Background">Riwayat Pendidikan</h3>
+          <div class="about-scene-body">
+            <ul class="about-scene-list edu">
+              <li><span class="edu-year">2013–2015</span><span data-id="TK PGRI 01" data-en="PGRI 01 Kindergarten">TK PGRI 01</span></li>
+              <li><span class="edu-year">2015–2021</span><span data-id="SD Negeri Bugangan 03" data-en="Bugangan 03 Public Elementary School">SD Negeri Bugangan 03</span></li>
+              <li><span class="edu-year">2021–2024</span><span data-id="SMP Negeri 6 Semarang" data-en="Semarang 6 Public Junior High School">SMP Negeri 6 Semarang</span></li>
+              <li><span class="edu-year">2024–2028</span><span data-id="SMK Negeri 7 Semarang — Jurusan SIJA" data-en="Semarang 7 Public Vocational High School — SIJA Major">SMK Negeri 7 Semarang — Jurusan SIJA</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="about-scene reveal-up" style="--delay:0.16s; --scene-color:#a855c8">
+          <div class="about-scene-num">03</div>
+          <div class="about-scene-icon"><i data-lucide="star"></i></div>
+          <h3 class="about-scene-title" data-id="Hobi" data-en="Hobbies">Hobi</h3>
+          <div class="about-scene-body">
+            <ul class="about-scene-list">
+              <li data-id="Menonton Drama China" data-en="Watching Chinese Dramas">Menonton Drama China</li><li data-id="Mendengarkan musik" data-en="Listening to music">Mendengarkan musik</li>
+              <li data-id="Membuat desain kreatif" data-en="Creating creative designs">Membuat desain kreatif</li><li data-id="Berinovasi, berbisnis, dan berwirausaha" data-en="Innovating, doing business, and entrepreneurship">Berinovasi, berbisnis, dan berwirausaha</li>
+              <li data-id="Bermain game Roblox" data-en="Playing Roblox games">Bermain game Roblox</li><li>Wushu</li>
+            </ul>
+          </div>
+        </div>
+        <div class="about-scene reveal-up" style="--delay:0.24s; --scene-color:#d4a020">
+          <div class="about-scene-num">04</div>
+          <div class="about-scene-icon"><i data-lucide="sparkles"></i></div>
+          <h3 class="about-scene-title" data-id="Minat" data-en="Interests">Minat</h3>
+          <div class="about-scene-body">
+            <ul class="about-scene-list">
+              <li data-id="Desain dan pemrograman" data-en="Design and programming">Desain dan pemrograman</li><li data-id="Menciptakan website dan game" data-en="Creating websites and games">Menciptakan website dan game</li>
+              <li data-id="Desain kreatif dan inspiratif" data-en="Creative and inspiring design">Desain kreatif dan inspiratif</li><li data-id="Kerajinan DIY &amp; peluang usaha" data-en="DIY crafts &amp; business opportunities">Kerajinan DIY &amp; peluang usaha</li>
+              <li data-id="Bisnis dan wirausaha" data-en="Business and entrepreneurship">Bisnis dan wirausaha</li><li data-id="Ilmu bela diri — Wushu" data-en="Martial arts — Wushu">Ilmu bela diri — Wushu</li>
+            </ul>
+          </div>
+        </div>
+        <div class="about-scene reveal-up" style="--delay:0.32s; --scene-color:#38b8a0">
+          <div class="about-scene-num">05</div>
+          <div class="about-scene-icon"><i data-lucide="rocket"></i></div>
+          <h3 class="about-scene-title" data-id="Cita-Cita" data-en="Dreams and Goals">Cita-Cita</h3>
+          <div class="about-scene-body">
+            <ul class="about-scene-list">
+              <li data-id="Wirausahawan muda sukses &amp; terkenal" data-en="Successful &amp; famous young entrepreneur">Wirausahawan muda sukses &amp; terkenal</li><li data-id="Web developer &amp; game developer ahli" data-en="Expert web developer &amp; game developer">Web developer &amp; game developer ahli</li>
+              <li data-id="Editor berkelas (video &amp; foto)" data-en="Classy editor (video &amp; photo)">Editor berkelas (video &amp; foto)</li><li data-id="Atlet Wushu master" data-en="Wushu master athlete">Atlet Wushu master</li>
+              <li data-id="Desainer busana &amp; aksesoris" data-en="Fashion &amp; accessories designer">Desainer busana &amp; aksesoris</li><li data-id="Pelukis" data-en="Painter">Pelukis</li><li data-id="Astronot" data-en="Astronaut">Astronot</li>
+            </ul>
+          </div>
+        </div>
+        <div class="about-scene reveal-up" style="--delay:0.40s; --scene-color:#e87840">
+          <div class="about-scene-num">06</div>
+          <div class="about-scene-icon"><i data-lucide="zap"></i></div>
+          <h3 class="about-scene-title" data-id="Keahlian" data-en="Skills">Keahlian</h3>
+          <div class="about-scene-body">
+            <p class="about-skills-sub">Soft Skills</p>
+            <div class="about-chips">
+              <span class="chip soft" data-id="Supel" data-en="Sociable">Supel</span><span class="chip soft" data-id="Kreatif" data-en="Creative">Kreatif</span><span class="chip soft" data-id="Inovatif" data-en="Innovative">Inovatif</span>
+              <span class="chip soft" data-id="Terampil" data-en="Skilled">Terampil</span><span class="chip soft" data-id="Berbakat" data-en="Talented">Berbakat</span><span class="chip soft" data-id="Berambisi" data-en="Ambitious">Berambisi</span><span class="chip soft">Perfectionist</span>
+            </div>
+            <p class="about-skills-sub" style="margin-top:14px">Hard Skills</p>
+            <div class="about-chips">
+              <span class="chip hard">HTML</span><span class="chip hard">CSS</span><span class="chip hard">UI/UX Design</span>
+              <span class="chip hard">CapCut</span><span class="chip hard">Canva</span><span class="chip hard">PicsArt</span><span class="chip hard">Ibis Paint</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section id="skills" class="section-skills">
+    <div class="section-content">
+      <div class="section-label reveal-up" data-id="Keahlianku" data-en="My Skills">Keahlianku</div>
+      <h2 class="section-title reveal-up" data-id="Yang Aku Lakukan" data-en="What I Do">Yang Aku Lakukan</h2>
+      <div class="skill-category reveal-up">
+        <div class="skill-cat-header"><i data-lucide="monitor" class="skill-cat-icon"></i><span data-id="Sistem dan Teknologi" data-en="System and Technology">Sistem dan Teknologi</span></div>
+        <div class="skill-list">
+          <div class="skill-row"><div class="skill-row-top"><span class="skill-name">HTML</span><span class="skill-pct" style="color:#e8607a">55%</span></div><div class="skill-track"><div class="skill-bar-fill" data-pct="55" style="--bar-color: linear-gradient(90deg,#f9a8c0,#e8607a)"></div></div></div>
+          <div class="skill-row"><div class="skill-row-top"><span class="skill-name">CSS</span><span class="skill-pct" style="color:#e8607a">45%</span></div><div class="skill-track"><div class="skill-bar-fill" data-pct="45" style="--bar-color: linear-gradient(90deg,#f9a8c0,#e8607a)"></div></div></div>
+          <div class="skill-row"><div class="skill-row-top"><span class="skill-name">JavaScript</span><span class="skill-pct" style="color:#e8607a">30%</span></div><div class="skill-track"><div class="skill-bar-fill" data-pct="30" style="--bar-color: linear-gradient(90deg,#f9a8c0,#e8607a)"></div></div></div>
+          <div class="skill-row"><div class="skill-row-top"><span class="skill-name">Cisco</span><span class="skill-pct" style="color:#e8607a">50%</span></div><div class="skill-track"><div class="skill-bar-fill" data-pct="50" style="--bar-color: linear-gradient(90deg,#f9a8c0,#e8607a)"></div></div></div>
+        </div>
+      </div>
+      <div class="skill-category reveal-up" style="--delay:0.1s">
+        <div class="skill-cat-header"><i data-lucide="pen-tool" class="skill-cat-icon"></i><span data-id="Desain dan Kreativitas" data-en="Design and Creativity">Desain dan Kreativitas</span></div>
+        <div class="skill-list">
+          <div class="skill-row"><div class="skill-row-top"><span class="skill-name">Crafting DIY</span><span class="skill-pct" style="color:#2196f3">95%</span></div><div class="skill-track"><div class="skill-bar-fill" data-pct="95" style="--bar-color: linear-gradient(90deg,#90caf9,#2196f3)"></div></div></div>
+          <div class="skill-row"><div class="skill-row-top"><span class="skill-name">Digital Design (Canva, PicsArt, Ibis Paint)</span><span class="skill-pct" style="color:#2196f3">90%</span></div><div class="skill-track"><div class="skill-bar-fill" data-pct="90" style="--bar-color: linear-gradient(90deg,#90caf9,#2196f3)"></div></div></div>
+          <div class="skill-row"><div class="skill-row-top"><span class="skill-name">Video Editing (CapCut)</span><span class="skill-pct" style="color:#2196f3">80%</span></div><div class="skill-track"><div class="skill-bar-fill" data-pct="80" style="--bar-color: linear-gradient(90deg,#90caf9,#2196f3)"></div></div></div>
+        </div>
+      </div>
+      <div class="skill-category reveal-up" style="--delay:0.2s">
+        <div class="skill-cat-header"><i data-lucide="sparkles" class="skill-cat-icon"></i><span data-id="Seni dan Olahraga" data-en="Arts and Sports">Seni dan Olahraga</span></div>
+        <div class="skill-list">
+          <div class="skill-row"><div class="skill-row-top"><span class="skill-name" data-id="Tari" data-en="Traditional Dance">Tari</span><span class="skill-pct" style="color:#22c55e">90%</span></div><div class="skill-track"><div class="skill-bar-fill" data-pct="90" style="--bar-color: linear-gradient(90deg,#86efac,#22c55e)"></div></div></div>
+          <div class="skill-row"><div class="skill-row-top"><span class="skill-name" data-id="Melukis" data-en="Painting">Melukis</span><span class="skill-pct" style="color:#22c55e">83%</span></div><div class="skill-track"><div class="skill-bar-fill" data-pct="83" style="--bar-color: linear-gradient(90deg,#86efac,#22c55e)"></div></div></div>
+          <div class="skill-row"><div class="skill-row-top"><span class="skill-name" data-id="Renang" data-en="Swimming">Renang</span><span class="skill-pct" style="color:#22c55e">83%</span></div><div class="skill-track"><div class="skill-bar-fill" data-pct="83" style="--bar-color: linear-gradient(90deg,#86efac,#22c55e)"></div></div></div>
+          <div class="skill-row"><div class="skill-row-top"><span class="skill-name">Wushu</span><span class="skill-pct" style="color:#22c55e">75%</span></div><div class="skill-track"><div class="skill-bar-fill" data-pct="75" style="--bar-color: linear-gradient(90deg,#86efac,#22c55e)"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO SECTION -->
+  <section id="portfolio" class="section-portfolio">
+    <div class="section-content">
+      <div class="section-label reveal-up" data-id="Portofolio" data-en="Portfolio">Portofolio</div>
+      <h2 class="section-title reveal-up" data-id="Karyaku" data-en="My Works">Karyaku</h2>
+      <div class="portfolio-filters reveal-up">
+        <button class="pf-btn active" data-filter="semua" data-id="Semua" data-en="All">Semua</button>
+        <button class="pf-btn" data-filter="projek" data-id="Projek" data-en="Projects">Projek</button>
+        <button class="pf-btn" data-filter="website">Website</button>
+        <button class="pf-btn" data-filter="sertifikat" data-id="Sertifikat" data-en="Certificates">Sertifikat</button>
+      </div>
+      <div class="portfolio-view-toggle reveal-up">
+        <button class="pvt-btn active" id="view-flat" title="Tampilan Biasa">
+          <i data-lucide="layout-grid"></i>
+        </button>
+        <button class="pvt-btn" id="view-3d" title="Tampilan 3D">
+          <i data-lucide="box"></i>
+        </button>
+      </div>
+      <div class="carousel-nav hidden" id="carousel-nav">
+        <button class="carousel-btn carousel-btn--prev" id="carousel-prev" aria-label="Previous">
+          <i data-lucide="chevron-left"></i>
+        </button>
+        <div class="carousel-dots" id="carousel-dots"></div>
+        <button class="carousel-btn carousel-btn--next" id="carousel-next" aria-label="Next">
+          <i data-lucide="chevron-right"></i>
+        </button>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-card reveal-up" data-category="projek" style="--delay:0s">
+          <div class="portfolio-img-wrap">
+            <img src="KIPAS.png" alt="Kipas Desain" />
+            <a href="https://drive.google.com/drive/folders/1PivJz-U47TUDmAjR_X1MrZ3sMGshn9VK?usp=drive_link" target="_blank" rel="noopener" class="portfolio-overlay"><span data-id="Lihat Proyek" data-en="View Project">Lihat Proyek</span></a>
+          </div>
+          <div class="portfolio-info">
+            <h3 data-id="Desain dan Produksi Kipas" data-en="Fan Design and Production">Desain dan Produksi Kipas</h3>
+            <p data-id="Belajar mendesain, mencetak, dan menghasilkan produk yang membuka peluang usaha" data-en="Learning to design, print, and produce products that open up business opportunities">Belajar mendesain, mencetak, dan menghasilkan produk yang membuka peluang usaha</p>
+            <a href="https://drive.google.com/drive/folders/1PivJz-U47TUDmAjR_X1MrZ3sMGshn9VK?usp=drive_link" target="_blank" rel="noopener" class="portfolio-link"><i data-lucide="external-link" class="portfolio-link-ic"></i><span data-id="Lihat di Google Drive" data-en="View on Google Drive">Lihat di Google Drive</span></a>
+          </div>
+        </div>
+        <div class="portfolio-card reveal-up" data-category="projek" style="--delay:0.1s">
+          <div class="portfolio-img-wrap">
+            <img src="DAUR.png" alt="Daur Ulang Komponen Komputer" />
+            <a href="https://drive.google.com/drive/folders/1F0fgZI1jSaVMHzS1lW6xKfiGBDw2M42y?usp=drive_link" target="_blank" rel="noopener" class="portfolio-overlay"><span data-id="Lihat Proyek" data-en="View Project">Lihat Proyek</span></a>
+          </div>
+          <div class="portfolio-info">
+            <h3 data-id="Daur Ulang Komponen Komputer" data-en="Computer Component Recycling">Daur Ulang Komponen Komputer</h3>
+            <p data-id="Memanfaatkan dan mendaur ulang komponen komputer menjadi barang fungsional serta estetik" data-en="Utilizing and recycling computer components into functional and aesthetic items">Memanfaatkan dan mendaur ulang komponen komputer menjadi barang fungsional serta estetik</p>
+            <a href="https://drive.google.com/drive/folders/1F0fgZI1jSaVMHzS1lW6xKfiGBDw2M42y?usp=drive_link" target="_blank" rel="noopener" class="portfolio-link"><i data-lucide="external-link" class="portfolio-link-ic"></i><span data-id="Lihat di Google Drive" data-en="View on Google Drive">Lihat di Google Drive</span></a>
+          </div>
+        </div>
+        <div class="portfolio-card reveal-up" data-category="website" style="--delay:0.2s">
+          <div class="portfolio-img-wrap">
+            <img src="MOODFLIX.png" alt="Moodflix" onerror="this.src='dev.jpeg'" />
+            <a href="https://meltneeta.github.io/MOODFLIX/" target="_blank" rel="noopener" class="portfolio-overlay"><span data-id="Lihat Proyek" data-en="View Project">Lihat Proyek</span></a>
+          </div>
+          <div class="portfolio-info">
+            <h3>Moodflix</h3>
+            <p data-id="Berani memulai dasar-dasar UI/UX dan coding — terciptalah rasa puas dan bangga terhadap hasil" data-en="Bravely starting the basics of UI/UX and coding — creating a sense of satisfaction and pride in the result">Berani memulai dasar-dasar UI/UX dan coding — terciptalah rasa puas dan bangga terhadap hasil</p>
+            <a href="https://meltneeta.github.io/MOODFLIX/" target="_blank" rel="noopener" class="portfolio-link"><i data-lucide="external-link" class="portfolio-link-ic"></i><span data-id="Lihat Website" data-en="View Website">Lihat Website</span></a>
+          </div>
+        </div>
+        <div class="portfolio-card reveal-up" data-category="website" style="--delay:0.25s">
+          <div class="portfolio-img-wrap">
+            <img src="REFORMASI.png" alt="Masa Reformasi 1998" />
+            <a href="https://masa-reformasi-1998-kelompok12.netlify.app/" target="_blank" rel="noopener" class="portfolio-overlay"><span data-id="Lihat Proyek" data-en="View Project">Lihat Proyek</span></a>
+          </div>
+          <div class="portfolio-info">
+            <h3 data-id="Masa Reformasi 1998" data-en="The 1998 Reform Era">Masa Reformasi 1998</h3>
+            <p data-id="Website sejarah kelompok 12 tentang masa reformasi 1998, dibuat sebagai proyek mata pelajaran" data-en="A history website by group 12 about the 1998 reform era, created as a school project">Website sejarah kelompok 12 tentang masa reformasi 1998</p>
+            <a href="https://masa-reformasi-1998-kelompok12.netlify.app/" target="_blank" rel="noopener" class="portfolio-link"><i data-lucide="external-link" class="portfolio-link-ic"></i><span data-id="Lihat Website" data-en="View Website">Lihat Website</span></a>
+          </div>
+        </div>
+        <div class="portfolio-card reveal-up" data-category="website" style="--delay:0.35s">
+          <div class="portfolio-img-wrap">
+            <img src="KIK.png" alt="Web Mata Pelajaran KIK" />
+            <a href="https://dep-code.github.io/deviramlc-webmatapelajarankik/" target="_blank" rel="noopener" class="portfolio-overlay"><span data-id="Lihat Proyek" data-en="View Project">Lihat Proyek</span></a>
+          </div>
+          <div class="portfolio-info">
+            <h3 data-id="Web Mata Pelajaran KIK" data-en="KIK Subject Website">Web Mata Pelajaran KIK</h3>
+            <p data-id="Website mata pelajaran KIK yang dibuat sebagai tugas sekolah dengan desain yang menarik" data-en="A KIK subject website created as a school assignment with an attractive design">Website mata pelajaran KIK yang dibuat sebagai tugas sekolah</p>
+            <a href="https://dep-code.github.io/deviramlc-webmatapelajarankik/" target="_blank" rel="noopener" class="portfolio-link"><i data-lucide="external-link" class="portfolio-link-ic"></i><span data-id="Lihat Website" data-en="View Website">Lihat Website</span></a>
+          </div>
+        </div>
+        <div class="portfolio-card reveal-up" data-category="website" style="--delay:0.45s">
+          <div class="portfolio-img-wrap">
+            <img src="MAT.png" alt="Web Materi Fungsi" />
+            <a href="https://dep-code.github.io/deviramlc-webmaterifungsi-/" target="_blank" rel="noopener" class="portfolio-overlay"><span data-id="Lihat Proyek" data-en="View Project">Lihat Proyek</span></a>
+          </div>
+          <div class="portfolio-info">
+            <h3 data-id="Web Materi Fungsi" data-en="Function Material Website">Web Materi Fungsi</h3>
+            <p data-id="Website materi fungsi matematika yang dibuat sebagai tugas sekolah" data-en="A mathematics function material website created as a school assignment">Website materi fungsi yang dibuat sebagai tugas sekolah</p>
+            <a href="https://dep-code.github.io/deviramlc-webmaterifungsi-/" target="_blank" rel="noopener" class="portfolio-link"><i data-lucide="external-link" class="portfolio-link-ic"></i><span data-id="Lihat Website" data-en="View Website">Lihat Website</span></a>
+          </div>
+        </div>
+        <div class="portfolio-card reveal-up" data-category="website" style="--delay:0.55s">
+          <div class="portfolio-img-wrap">
+            <img src="PRINTASTIC.png" alt="Printastic" />
+            <a href="https://s.id/printastic" target="_blank" rel="noopener" class="portfolio-overlay"><span data-id="Lihat Proyek" data-en="View Project">Lihat Proyek</span></a>
+          </div>
+          <div class="portfolio-info">
+            <h3 data-id="Printastic" data-en="Printastic">Printastic</h3>
+            <p data-id="Website Printastic — proyek kreatif yang menampilkan karya desain cetak" data-en="Printastic website — a creative project showcasing print design works">Website Printastic — proyek kreatif desain cetak</p>
+            <a href="https://s.id/printastic" target="_blank" rel="noopener" class="portfolio-link"><i data-lucide="external-link" class="portfolio-link-ic"></i><span data-id="Lihat Website" data-en="View Website">Lihat Website</span></a>
+          </div>
+        </div>
+        <div class="portfolio-card reveal-up" data-category="website" style="--delay:0.65s">
+          <div class="portfolio-img-wrap">
+            <img src="DEVIRA.png" alt="Devira Meireditha Luis Cahyani" />
+            <a href="https://s.id/Devira-Meireditha-Luis-Cahyani" target="_blank" rel="noopener" class="portfolio-overlay"><span data-id="Lihat Proyek" data-en="View Project">Lihat Proyek</span></a>
+          </div>
+          <div class="portfolio-info">
+            <h3 data-id="Devira Meireditha Luis Cahyani" data-en="Devira Meireditha Luis Cahyani">Devira Meireditha Luis Cahyani</h3>
+            <p data-id="Website personal Devira Meireditha Luis Cahyani" data-en="Personal website of Devira Meireditha Luis Cahyani">Website personal Devira Meireditha Luis Cahyani</p>
+            <a href="https://s.id/Devira-Meireditha-Luis-Cahyani" target="_blank" rel="noopener" class="portfolio-link"><i data-lucide="external-link" class="portfolio-link-ic"></i><span data-id="Lihat Website" data-en="View Website">Lihat Website</span></a>
+          </div>
+        </div>
+        <div class="portfolio-card reveal-up" data-category="sertifikat" style="--delay:0.3s">
+          <div class="portfolio-img-wrap">
+            <img src="SERTIFIKAT HOC AI FOR OCEANS.jpg" alt="Sertifikat HOC AI For Oceans" />
+            <div class="portfolio-overlay"><span data-id="Lihat Sertifikat" data-en="View Certificate">Lihat Sertifikat</span></div>
+          </div>
+          <div class="portfolio-info">
+            <h3 data-id="HOC — AI For Oceans" data-en="HOC — AI For Oceans">HOC — AI For Oceans</h3>
+            <p data-id="Sertifikat Hour of Code: AI For Oceans" data-en="Hour of Code Certificate: AI For Oceans">Sertifikat Hour of Code: AI For Oceans</p>
+          </div>
+        </div>
+        <div class="portfolio-card reveal-up" data-category="sertifikat" style="--delay:0.35s">
+          <div class="portfolio-img-wrap">
+            <img src="SERTIFIKAT HOC HOW BLOCKCHAIN WORKS.jpg" alt="Sertifikat HOC How Blockchain Works" />
+            <div class="portfolio-overlay"><span data-id="Lihat Sertifikat" data-en="View Certificate">Lihat Sertifikat</span></div>
+          </div>
+          <div class="portfolio-info">
+            <h3 data-id="HOC — How Blockchain Works" data-en="HOC — How Blockchain Works">HOC — How Blockchain Works</h3>
+            <p data-id="Sertifikat Hour of Code: How Blockchain Works" data-en="Hour of Code Certificate: How Blockchain Works">Sertifikat Hour of Code: How Blockchain Works</p>
+          </div>
+        </div>
+        <div class="portfolio-card reveal-up" data-category="sertifikat" style="--delay:0.45s">
+          <div class="portfolio-img-wrap">
+            <img src="SERTIFIKAT HOC MINECRAFT ADVENTURER.jpg" alt="Sertifikat HOC Minecraft Adventurer" />
+            <div class="portfolio-overlay"><span data-id="Lihat Sertifikat" data-en="View Certificate">Lihat Sertifikat</span></div>
+          </div>
+          <div class="portfolio-info">
+            <h3 data-id="HOC — Minecraft Adventurer" data-en="HOC — Minecraft Adventurer">HOC — Minecraft Adventurer</h3>
+            <p data-id="Sertifikat Hour of Code: Minecraft Adventurer" data-en="Hour of Code Certificate: Minecraft Adventurer">Sertifikat Hour of Code: Minecraft Adventurer</p>
+          </div>
+        </div>
+        <div class="portfolio-card reveal-up" data-category="sertifikat" style="--delay:0.55s">
+          <div class="portfolio-img-wrap">
+            <img src="SERTIFIKAT HOC MUSIC LAB.jpg" alt="Sertifikat HOC Music Lab" />
+            <div class="portfolio-overlay"><span data-id="Lihat Sertifikat" data-en="View Certificate">Lihat Sertifikat</span></div>
+          </div>
+          <div class="portfolio-info">
+            <h3 data-id="HOC — Music Lab" data-en="HOC — Music Lab">HOC — Music Lab</h3>
+            <p data-id="Sertifikat Hour of Code: Music Lab" data-en="Hour of Code Certificate: Music Lab">Sertifikat Hour of Code: Music Lab</p>
+          </div>
+        </div>
+        <div class="portfolio-card reveal-up" data-category="projek" style="--delay:0.42s">
+          <div class="portfolio-img-wrap">
+            <img src="SCRATCH.png" alt="Proyek Scratch" />
+            <a href="https://scratch.mit.edu/projects/1064544425" target="_blank" rel="noopener" class="portfolio-overlay"><span data-id="Lihat Proyek" data-en="View Project">Lihat Proyek</span></a>
+          </div>
+          <div class="portfolio-info">
+            <h3 data-id="Proyek Scratch" data-en="Scratch Project">Proyek Scratch</h3>
+            <p data-id="Proyek game interaktif yang dibuat menggunakan Scratch" data-en="An interactive game project made using Scratch">Proyek game interaktif yang dibuat menggunakan Scratch</p>
+            <a href="https://scratch.mit.edu/projects/1064544425" target="_blank" rel="noopener" class="portfolio-link"><i data-lucide="external-link" class="portfolio-link-ic"></i><span data-id="Lihat Proyek" data-en="View Project">Lihat Proyek</span></a>
+          </div>
+        </div>
+        <div class="portfolio-card reveal-up" data-category="projek" style="--delay:0.44s">
+          <div class="portfolio-img-wrap">
+            <img src="POSTER 5.jpg" alt="Koleksi Karya" />
+            <a href="https://drive.google.com/drive/folders/1jg9WbhYp1QcX8C8UiRhA9qq8Fr03AE5O?usp=drive_link&classId=0f589b68-6a42-4c91-b95e-4d4adf9de5d2&assignmentId=ba12b304-3051-44dd-8b47-8933f8e63394&submissionId=f1193043-4819-8068-8c9a-8bf621d3dfa6" target="_blank" rel="noopener" class="portfolio-overlay"><span data-id="Lihat Proyek" data-en="View Project">Lihat Proyek</span></a>
+          </div>
+          <div class="portfolio-info">
+            <h3 data-id="Koleksi Karya" data-en="Works Collection">Koleksi Karya</h3>
+            <p data-id="Kumpulan karya tersimpan di Google Drive" data-en="Collection of works and documents stored on Google Drive">Kumpulan karya tersimpan di Google Drive</p>
+            <a href="https://drive.google.com/drive/folders/1jg9WbhYp1QcX8C8UiRhA9qq8Fr03AE5O?usp=drive_link&classId=0f589b68-6a42-4c91-b95e-4d4adf9de5d2&assignmentId=ba12b304-3051-44dd-8b47-8933f8e63394&submissionId=f1193043-4819-8068-8c9a-8bf621d3dfa6" target="_blank" rel="noopener" class="portfolio-link"><i data-lucide="external-link" class="portfolio-link-ic"></i><span data-id="Lihat di Google Drive" data-en="View on Google Drive">Lihat di Google Drive</span></a>
+          </div>
+        </div>
+        <div class="portfolio-card reveal-up" data-category="sertifikat" style="--delay:0.7s">
+          <div class="portfolio-img-wrap">
+            <img src="SERTIFIKAT STC.png" alt="Sertifikat STC" />
+            <div class="portfolio-overlay"><span data-id="Lihat Sertifikat" data-en="View Certificate">Lihat Sertifikat</span></div>
+          </div>
+          <div class="portfolio-info">
+            <h3 data-id="Sertifikat STC" data-en="STC Certificate">Sertifikat STC</h3>
+            <p data-id="Sertifikat STC yang diraih sebagai bukti prestasi dan kompetensi" data-en="STC Certificate achieved as proof of achievement and competence">Sertifikat STC yang diraih sebagai bukti prestasi dan kompetensi</p>
+          </div>
+        </div>
+        <div class="portfolio-card reveal-up" data-category="sertifikat" style="--delay:0.75s">
+          <div class="portfolio-img-wrap">
+            <img src="Sertifikat_kursus.png" alt="Sertifikat Jota Joti" />
+            <div class="portfolio-overlay"><span data-id="Lihat Sertifikat" data-en="View Certificate">Lihat Sertifikat</span></div>
+          </div>
+          <div class="portfolio-info">
+            <h3 data-id="Sertifikat Jota Joti" data-en="Course Certificate">Sertifikat Jota Joti</h3>
+            <p data-id="Sertifikat Jota Joti yang diraih sebagai bukti pengalaman diri" data-en="Course certificate achieved as proof of self-development">Sertifikat Jota Joti sebagai bukti pengalaman diri</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CV SECTION -->
+  <section id="cv" class="section-cv">
+    <div class="section-content">
+      <div class="section-label reveal-up">Resume</div>
+      <h2 class="section-title reveal-up" data-id="CV Saya" data-en="My CV">CV Saya</h2>
+      <div class="cv-download-row reveal-up">
+        <a href="cv indo.png" download="CV_Devira_Meireditha.jpeg" class="cv-btn"><i data-lucide="download"></i><span data-id="Unduh CV" data-en="Download CV">Unduh CV</span></a>
+      </div>
+      <div class="cv-img-wrap reveal-up">
+        <img src="cv indo.png" alt="CV Devira Meireditha Luis Cahyani" class="cv-full-img" id="cv-img-el" />
+        <embed id="cv-pdf-el" src="cv.pdf" type="application/pdf" class="cv-pdf-embed" style="display:none; width:100%; height:800px; border-radius:20px;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-ornament">
+      <svg viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg">
+        <line x1="0" y1="10" x2="160" y2="10" stroke="url(#fGold)" stroke-width="0.8"/>
+        <circle cx="200" cy="10" r="3" fill="#d4af7a"/>
+        <line x1="240" y1="10" x2="400" y2="10" stroke="url(#fGold)" stroke-width="0.8"/>
+        <defs><linearGradient id="fGold" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="transparent"/><stop offset="100%" stop-color="#d4af7a"/></linearGradient></defs>
+      </svg>
+    </div>
+    <p class="footer-name">Devira Meireditha Luis Cahyani</p>
+    <p class="footer-copy" data-id="Dibuat dengan cinta dan keeleganan" data-en="Crafted with love and elegance">Dibuat dengan cinta dan keeleganan</p>
+  </footer>
+
+</div><!-- /#main-site -->
+
+<!-- FIND ME MODAL -->
+<div id="findme-modal" class="modal hidden">
+  <div class="modal-backdrop"></div>
+  <div class="modal-panel modal-panel--sm">
+    <button class="modal-close" id="findme-close"><i data-lucide="x"></i></button>
+    <div class="modal-label" data-id="Terhubung" data-en="Connect">Terhubung</div>
+    <h2 class="modal-title" data-id="Temukan Saya" data-en="Find Me">Temukan Saya</h2>
+    <div class="findme-grid">
+      <a href="mailto:meiluishy@gmail.com" class="findme-card"><i data-lucide="mail"></i><span>Email</span></a>
+      <a href="https://wa.me/6287894476456" class="findme-card" target="_blank" rel="noopener"><i data-lucide="message-circle"></i><span>WhatsApp</span></a>
+      <a href="https://instagram.com/deplupiss_" class="findme-card" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="findme-ig-icon">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4.5"/>
+          <circle cx="17.5" cy="6.5" r="1" class="findme-ig-dot"/>
+        </svg>
+        <span>Instagram</span>
+      </a>
+      <a href="https://discord.com/users/devira0157_24915" class="findme-card" target="_blank" rel="noopener"><i data-lucide="headphones"></i><span>Discord</span></a>
+    </div>
+  </div>
+</div>
+
+<script src="index.js?v=8"></script>
+</body>
+</html>
+
